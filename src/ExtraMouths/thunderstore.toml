@@ -8,7 +8,7 @@ repository = "https://thunderstore.io"
 namespace = "FakeGameDevelopers"
 name = "ExtraMouths"
 description = "Scales PEAK forage food for lobbies larger than 4 players (+2 mouths)."
-websiteUrl = "https://github.com/armanossiloko/peak-extra-mouths-mod"
+websiteUrl = "https://github.com/fake-game-developers/peak-extra-mouths-mod"
 containsNsfwContent = false
 
 [package.dependencies]

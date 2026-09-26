@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Point the Thunderstore website link at the fake-game-developers repository
+
 ## 1.0.0
 
 - Initial release of ExtraMouths by Arman Ossi Loko
