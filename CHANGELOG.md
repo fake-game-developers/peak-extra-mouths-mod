@@ -3,6 +3,7 @@
 ## 1.0.1
 
 - Point the Thunderstore website link at the fake-game-developers repository
+- Set the license copyright holder to Fake Game Developers
 
 ## 1.0.0
 
