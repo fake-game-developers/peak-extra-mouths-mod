@@ -112,5 +112,6 @@ dotnet build -c Release -target:PackTS
 
 ## Credits
 
-- Author: **Arman Ossi Loko**
+- Original author: **Arman Ossi Loko**
+- This mod belongs to **Fake Game Developers**
 - Spawn-multiplier approach adapted from [ItemMultiplierBis](https://github.com/Wesmania/peak-item-multiplier-bis) (MIT), which improved on IceMods' ItemMultiplier
