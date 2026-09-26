@@ -8,7 +8,7 @@
 		<Company>Arman Ossi Loko</Company>
 		<Copyright>Copyright (c) 2026 Fake Game Developers</Copyright>
 		<Description>Scales PEAK forage food for lobbies larger than 4 players.</Description>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<RootNamespace>ExtraMouths</RootNamespace>
 		<ThunderstorePackable>true</ThunderstorePackable>
 	</PropertyGroup>

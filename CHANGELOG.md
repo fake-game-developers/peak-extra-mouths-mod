@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+- No gameplay changes. Version bump to verify automatic Thunderstore publishing
+
 ## 1.0.1
 
 - Point the Thunderstore website link at the fake-game-developers repository
