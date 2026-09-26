@@ -4,11 +4,6 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
-    inputs:
-      publish:
-        description: "Publish the package to Thunderstore (requires TCLI_AUTH_TOKEN secret)"
-        type: boolean
-        default: false
 
 permissions:
   contents: write
@@ -19,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -64,8 +61,54 @@ jobs:
           path: ts-artifact/*
           if-no-files-found: error
 
+      - name: Decide whether to publish
+        id: publish
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          csproj=src/ExtraMouths/ExtraMouths.csproj
+          version=$(sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p' "$csproj")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+          if [ "$EVENT_NAME" = "push" ]; then
+            before="$BEFORE"
+          else
+            before=$(git rev-parse HEAD^)
+          fi
+
+          changed=false
+          if [ -n "$before" ] && [ "$before" != "0000000000000000000000000000000000000000" ] && git cat-file -e "${before}^{commit}" 2>/dev/null; then
+            old=$(git show "${before}:$csproj" | sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p')
+            echo "Previous version: ${old:-<missing>}"
+            if [ "$version" != "$old" ]; then
+              changed=true
+            fi
+          else
+            echo "No previous commit to compare; treating the version as changed."
+            changed=true
+          fi
+
+          if [ "$changed" = true ]; then
+            live=$(curl -fsSL -A "peak-extra-mouths-mod" "https://thunderstore.io/api/experimental/package/FakeGameDevelopers/ExtraMouths/" \
+              | python3 -c 'import json,sys; print(json.load(sys.stdin)["latest"]["version_number"])' \
+              || true)
+            if [ -n "$live" ] && [ "$version" = "$live" ]; then
+              echo "Version $version is already the live Thunderstore release."
+              changed=false
+            fi
+          fi
+
+          echo "Version $version; publish=$changed"
+          echo "publish=$changed" >> "$GITHUB_OUTPUT"
+
+      - name: Reuse Thunderstore categories
+        if: steps.publish.outputs.publish == 'true'
+        run: python3 .github/scripts/reuse-thunderstore-categories.py
+
       - name: Publish to Thunderstore
-        if: ${{ (github.event_name == 'workflow_dispatch' && inputs.publish) || (github.event_name == 'push' && vars.AUTO_PUBLISH_THUNDERSTORE == 'true') }}
+        if: steps.publish.outputs.publish == 'true'
         env:
           TCLI_AUTH_TOKEN: ${{ secrets.TCLI_AUTH_TOKEN }}
         run: |

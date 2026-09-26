@@ -34,5 +34,6 @@ target = "/"
 [publish]
 communities = [ "peak", ]
 
+# Fallback for a first publish. CI replaces this with the live package categories.
 [publish.categories]
-peak = [ "mods", "host-only", "quality-of-life" ]
+peak = [ "mods", "qol", "host", "ai-generated" ]

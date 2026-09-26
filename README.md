@@ -88,20 +88,7 @@ Every push to `master` runs [.github/workflows/thunderstore.yml](.github/workflo
 1. Builds a Thunderstore ZIP (using stripped [PEAKGameLibs](https://www.nuget.org/packages/PEAKGameLibs) for compile references)
 2. Uploads a workflow artifact named **`FakeGameDevelopers-ExtraMouths`**
 
-Download that artifact and upload the resulting `FakeGameDevelopers-ExtraMouths.zip` straight to Thunderstore — no unpacking/repacking needed. Publish under the **FakeGameDevelopers** team.
-
-### Manual publish from Actions
-
-1. Actions → **Thunderstore** → **Run workflow**
-2. Enable **Publish the package to Thunderstore**
-3. Requires repo secret `TCLI_AUTH_TOKEN` (Thunderstore team → Service Accounts)
-
-### Auto-publish on every master push
-
-1. Add secret `TCLI_AUTH_TOKEN`
-2. Add repository variable `AUTO_PUBLISH_THUNDERSTORE` = `true`
-
-Without that variable, pushes only build artifacts (safe default).
+Every push still builds that zip. Thunderstore publish runs only when `<Version>` in `src/ExtraMouths/ExtraMouths.csproj` changes, and the organization secret `TCLI_AUTH_TOKEN` is set. The publish step copies the categories already on the package, so a new version keeps the same tags. A commit that leaves the version unchanged only builds the artifact.
 
 ### Local package build
 
