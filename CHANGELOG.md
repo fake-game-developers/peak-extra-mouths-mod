@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Require credit to Arman Ossi Loko and Fake Game Developers, plus links to the GitHub repository and Thunderstore page, for anything based on this mod
+
 ## 1.0.2
 
 - No gameplay changes. Version bump to verify automatic Thunderstore publishing

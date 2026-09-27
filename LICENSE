@@ -1,6 +1,6 @@
-MIT License
+ExtraMouths Attribution License
 
-Copyright (c) 2026 Fake Game Developers
+Copyright (c) 2026 Arman Ossi Loko and Fake Game Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -9,8 +9,27 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+2. Attribution. Anyone who uses this Software as the basis for anything else —
+   including a copy, modification, fork, port, adaptation, or other derivative
+   work — must give clear, prominent credit to the original authors:
+
+      Arman Ossi Loko
+      Fake Game Developers
+
+   That credit must name both authors and this project (ExtraMouths), and must
+   include working links to both of the following:
+
+      https://github.com/fake-game-developers/peak-extra-mouths-mod
+      https://thunderstore.io/c/peak/p/FakeGameDevelopers/ExtraMouths/
+
+   The credit and both links must appear where people who receive the new work
+   would reasonably see them (for example a README, mod description, credits
+   section, or about page). If the new work is published on Thunderstore, the
+   credit and both links must appear on that package's Thunderstore page.
+   Credit and links may not be removed or hidden.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

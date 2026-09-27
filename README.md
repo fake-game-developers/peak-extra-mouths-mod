@@ -97,6 +97,10 @@ dotnet build -c Release -target:PackTS
 # zip lands in artifacts/thunderstore/
 ```
 
+## License
+
+[ExtraMouths Attribution License](LICENSE). You may use, modify, and redistribute this mod, including in other work based on it. Anything based on it must give clear credit to the original authors, **Arman Ossi Loko** and **Fake Game Developers**, name this project, and link to both the [GitHub repository](https://github.com/fake-game-developers/peak-extra-mouths-mod) and the [Thunderstore page](https://thunderstore.io/c/peak/p/FakeGameDevelopers/ExtraMouths/). On Thunderstore, that credit and both links must appear on the package page.
+
 ## Credits
 
 - Original author: **Arman Ossi Loko**
