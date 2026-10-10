@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## 1.0.3
 
+- Thunderstore package readme is now player-facing only (no build/CI docs)
 - Require credit to Arman Ossi Loko and Fake Game Developers, plus links to the GitHub repository and Thunderstore page, for anything based on this mod
 
 ## 1.0.2
