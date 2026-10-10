@@ -16,7 +16,7 @@ BepInEx-BepInExPack_PEAK = "5.4.2403"
 
 [build]
 icon = "../../icon.png"
-readme = "../../README.md"
+readme = "../../THUNDERSTORE.md"
 outdir = "../../artifacts/thunderstore/"
 
 [[build.copy]]

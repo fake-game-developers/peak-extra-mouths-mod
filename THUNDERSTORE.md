@@ -1,0 +1,81 @@
+# ExtraMouths
+
+A PEAK mod that scales **map forage food** (berries, coconuts, mushrooms, and similar) when more than four players are connected.
+
+Only the **host** needs this mod.
+
+## Formula
+
+When **5 or more** players are connected (host-side):
+
+```text
+multiplier = (connectedPlayers + ExtraPlayers) / BaselinePlayers
+```
+
+Defaults: `ExtraPlayers = 2`, `BaselinePlayers = 4`, `MinPlayersToScale = 5`.
+
+| Connected players | Effective mouths | Multiplier |
+|-------------------|------------------|------------|
+| 1–4               | —                | **vanilla** (mod skipped) |
+| 5                 | 7                | 1.75x |
+| 6                 | 8                | 2.0x |
+| 10                | 12               | 3.0x |
+
+## What gets scaled (defaults)
+
+- Berry bushes
+- Berry vines
+- Ground forage (e.g. mushrooms)
+- Food spawn pools on plain spawners (coconuts, winterberries, kingberries, clusterberries, nests, cactus fruit, redwood fungi, etc.)
+
+Luggage is **not** scaled by default. Campfire marshmallows are unchanged (use a lobby-size mod such as PEAK Unlimited for those).
+
+## Configuration
+
+After one launch, edit:
+
+`BepInEx/config/ExtraMouths.cfg`
+
+| Key | Default | Meaning |
+|-----|---------|---------|
+| `ExtraPlayers` | `2` | Extra mouths beyond the live lobby |
+| `BaselinePlayers` | `4` | Vanilla balance party size |
+| `MinPlayersToScale` | `5` | Below this → full vanilla rates |
+| `BerryBushes` / `BerryVines` / `GroundSpawns` / `FoodSpawnPools` | `true` | Toggle food categories |
+| `Luggages` | empty | Optional luggage display names to multiply (see below) |
+
+### Luggage names (`Luggages`)
+
+Comma-separated **exact** prefab display names. Do **not** wrap the value in quotation marks in the `.cfg` (quotes become part of the name and only middle entries like `Big Luggage` will match).
+
+```text
+Luggage,Big Luggage,Explorer's Luggage
+```
+
+Known vanilla names:
+
+| Display name | Notes |
+|---|---|
+| `Luggage` | Regular / small luggage |
+| `Big Luggage` | Tall white luggage |
+| `Explorer's Luggage` | Orange explorer briefcase (straight apostrophe `'`) |
+| `Ancient Luggage` | Ancient luggage |
+| `Ancient Statue` | Respawn statues (also a luggage spawner) |
+| `Clown Luggage` | Clown luggage |
+
+There is no public PEAK API or official name list; these come from the game’s Luggage `displayName` fields.
+
+## Install
+
+1. Install with r2modman / Gale (requires BepInEx for PEAK).
+2. Do **not** run this together with other item-multiplier mods that patch the same spawners.
+
+## License
+
+[ExtraMouths Attribution License](LICENSE). You may use, modify, and redistribute this mod, including in other work based on it. Anything based on it must give clear credit to the original authors, **Arman Ossi Loko** and **Fake Game Developers**, name this project, and link to both the [GitHub repository](https://github.com/fake-game-developers/peak-extra-mouths-mod) and the [Thunderstore page](https://thunderstore.io/c/peak/p/FakeGameDevelopers/ExtraMouths/). On Thunderstore, that credit and both links must appear on the package page.
+
+## Credits
+
+- Original author: **Arman Ossi Loko**
+- This mod belongs to **Fake Game Developers**
+- Spawn-multiplier approach adapted from [ItemMultiplierBis](https://github.com/Wesmania/peak-item-multiplier-bis) (MIT), which improved on IceMods' ItemMultiplier
